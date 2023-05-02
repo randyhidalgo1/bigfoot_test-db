@@ -35,8 +35,3 @@ INSERT INTO albums (artist, name, release_date, sales, genre)
 
 
 
-
-
-
-
-
