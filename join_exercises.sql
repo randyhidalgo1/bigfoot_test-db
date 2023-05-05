@@ -3,8 +3,8 @@ USE employees;
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name, d.dept_name
 FROM employees as e
          JOIN dept_emp as de ON de.emp_no = e.emp_no
-         JOIN departments as d ON d.dept_no = de.dept_no;
-#          WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
+         JOIN departments as d ON d.dept_no = de.dept_no
+         WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
 
 SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager'
 FROM departments as d
@@ -45,13 +45,12 @@ FROM departments AS d
 WHERE CURDATE() BETWEEN dm.from_date AND dm.to_date;
 
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee', d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager'
-FROM departments as d
+FROM departments AS d
          JOIN dept_manager AS dm ON dm.dept_no = d.dept_no
          JOIN employees AS e ON e.emp_no = dm.emp_no
          JOIN dept_emp AS de ON de.emp_no = e.emp_no
          JOIN departments AS d ON d.dept_no = de.dept_no
          WHERE CURDATE() BETWEEN dm.from_date AND dm.to_date;
-#          WHERE CURDATE() BETWEEN dm.from_date AND dm.to_date;
 
 
 
